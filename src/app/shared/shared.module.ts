@@ -7,7 +7,7 @@ import { LoadingSpinnerComponent } from './LoadingSpinner/loading-spinner.compon
 @NgModule({
   imports: [CommonModule, RouterModule],
   declarations: [LoadingSpinnerComponent],
-  exports: [LoadingSpinnerComponent, CommonModule],
+  exports: [LoadingSpinnerComponent, CommonModule, RouterModule],
   providers: [],
 })
 export class SharedModule {}
