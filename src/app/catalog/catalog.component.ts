@@ -30,7 +30,7 @@ export class CatalogComponent implements OnInit {
       (err) => {
         console.error(err);
         classToEnroll.processing = false;
-      }, //add a toast message or something
+      }, // add a toast message or something
       () => {
         classToEnroll.processing = false;
         classToEnroll.enrolled = true;
@@ -45,7 +45,7 @@ export class CatalogComponent implements OnInit {
       (err) => {
         console.error(err);
         classToDrop.processing = false;
-      }, //add a toast message or something
+      }, // add a toast message or something
       () => {
         classToDrop.processing = false;
         classToDrop.enrolled = false;
