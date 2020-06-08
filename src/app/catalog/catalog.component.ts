@@ -1,19 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { DataRepositoryService } from '../services/data-repository.service';
+import { CatalogRepositoryService } from './catalog-repository.service';
+import { UserRepositoryService } from 'app/services/user-repository.service';
 
 @Component({
   styleUrls: ['./catalog.component.css'],
   templateUrl: './catalog.component.html',
 })
-export class CatalogComponent {
+export class CatalogComponent implements OnInit {
   classes: any[];
   visibleClasses: any[];
 
-  constructor(private dataRepository: DataRepositoryService) { }
+  constructor(
+    private catalogRepositoryService: CatalogRepositoryService,
+    public userRepositoryService: UserRepositoryService
+  ) {}
 
   ngOnInit() {
-    this.dataRepository.getCatalog().subscribe((classes) => {
+    this.catalogRepositoryService.getCatalog().subscribe((classes) => {
       this.classes = classes;
       this.applyFilter('');
     });
@@ -21,7 +25,7 @@ export class CatalogComponent {
 
   enroll(classToEnroll) {
     classToEnroll.processing = true;
-    this.dataRepository.enroll(classToEnroll.classId).subscribe(
+    this.userRepositoryService.enroll(classToEnroll.classId).subscribe(
       null,
       (err) => {
         console.error(err);
@@ -36,7 +40,7 @@ export class CatalogComponent {
 
   drop(classToDrop) {
     classToDrop.processing = true;
-    this.dataRepository.drop(classToDrop.classId).subscribe(
+    this.userRepositoryService.drop(classToDrop.classId).subscribe(
       null,
       (err) => {
         console.error(err);

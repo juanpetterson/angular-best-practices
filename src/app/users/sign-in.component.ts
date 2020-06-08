@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { DataRepositoryService } from '../services/data-repository.service';
+import { UserRepositoryService } from '../services/user-repository.service';
 
 @Component({
   styles: [
@@ -142,11 +142,11 @@ export class SignInComponent {
 
   constructor(
     private router: Router,
-    private dataRepository: DataRepositoryService
+    private userRepositoryService: UserRepositoryService
   ) { }
 
   signIn(credentials: any) {
-    this.dataRepository.signIn(credentials).subscribe(
+    this.userRepositoryService.signIn(credentials).subscribe(
       null,
       (err) => {
         console.error(err, 'Error');
