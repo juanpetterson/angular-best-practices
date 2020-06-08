@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { LoadingSpinnerComponent } from './LoadingSpinner/loading-spinner.component';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   declarations: [LoadingSpinnerComponent],
   exports: [LoadingSpinnerComponent, CommonModule],
   providers: [],

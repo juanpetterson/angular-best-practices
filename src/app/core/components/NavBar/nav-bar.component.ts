@@ -4,21 +4,8 @@ import { UserRepositoryService } from '../../services/user-repository.service';
 
 @Component({
   selector: 'app-nav-bar',
-  styleUrls: [`./nav-bar.component.css`],
-  template: `
-    <div class="nav-bar">
-      <img
-        class="logo"
-        src="/assets/images/whitebeard-logo.png"
-        alt="Whitebeard Logo"
-      />
-      <div class="nav-item"><a [routerLink]="['/catalog']">Catalog</a></div>
-      <account-menu
-        [user]="currentUser"
-        (signedOut)="handleSignOut()"
-      ></account-menu>
-    </div>
-  `,
+  templateUrl: './nav-bar.component.html',
+  styleUrls: ['./nav-bar.component.css'],
 })
 export class NavBarComponent {
   constructor(private userRepositoryService: UserRepositoryService) {}
