@@ -2,14 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { UserRepositoryService } from '../services/user-repository.service';
+import { UserRepositoryService } from '../core/services/user-repository.service';
 
 @Component({
   selector: 'selector-name',
   templateUrl: 'register.component.html',
-  styleUrls: ['register.component.css']
+  styleUrls: ['register.component.css'],
 })
-
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   firstName: FormControl;
@@ -21,7 +20,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private router: Router,
     private userRepositoryService: UserRepositoryService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.firstName = new FormControl('', Validators.required);
@@ -50,4 +49,3 @@ export class RegisterComponent implements OnInit {
     this.router.navigate(['/']);
   }
 }
-

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'loading-spinner',
+  selector: 'app-loading-spinner',
   template: '<img *ngIf="loading" src="../../assets/images/loading.gif" />',
   inputs: ['loading'],
 })
