@@ -6,18 +6,22 @@
   <button (click)="applyFilter('')">All</button>
 </div>
 <div>
+  <button (click)="mutateFirstProfessor()">Mutate First Professor</button>
+  <button (click)="updateFirstProfessor()">
+    Immutablty Update First Professor
+  </button>
   <table>
     <thead>
       <th>Course #</th>
       <th>Course Name</th>
-      <th>Professor</th>
+      <th (click)="orderByField = 'professor'">Professor</th>
       <th>Days</th>
       <th>Time</th>
       <th class="center">Credits</th>
       <th class="center">Enroll/Drop</th>
     </thead>
     <tbody>
-      <tr *ngFor="let class of visibleClasses">
+      <tr *ngFor="let class of visibleClasses | orderBy: orderByField">
         <td>
           <a [routerLink]="['/catalog/' + class.course.courseNumber]">{{
             class.course.courseNumber

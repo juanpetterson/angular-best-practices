@@ -11,6 +11,7 @@ import { FilterClassesService } from './services/filter-classes.service';
 export class CatalogComponent implements OnInit {
   classes: any[];
   visibleClasses: any[];
+  orderByField: string;
 
   constructor(
     private catalogRepositoryService: CatalogRepositoryService,
@@ -23,6 +24,17 @@ export class CatalogComponent implements OnInit {
       this.classes = classes;
       this.applyFilter('');
     });
+  }
+
+  mutateFirstProfessor() {
+    this.visibleClasses[0].professor = 'Zebraman';
+  }
+
+  updateFirstProfessor() {
+    this.visibleClasses = [
+      Object.assign(this.visibleClasses[0], { professor: 'Zebraman' }),
+      ...this.visibleClasses.slice(1),
+    ];
   }
 
   enroll(classToEnroll) {
