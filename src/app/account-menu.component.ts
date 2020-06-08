@@ -1,8 +1,8 @@
-import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: "account-menu",
-  styleUrls: ["../styles/account-menu.component.css"],
+  styleUrls: ['./account-menu.component.css'],
   template: ` <div class="account">
     <span class="welcome" *ngIf="user">
       <a (click)="showMenu = !showMenu">

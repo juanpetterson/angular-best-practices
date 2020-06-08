@@ -4,19 +4,19 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class DataRepositoryService {
-  currentUser:any;
+  currentUser: any;
 
-  constructor() {}
+  constructor() { }
 
-  getCatalog():Observable<any[]> {
+  getCatalog(): Observable<any[]> {
     const subject = new Subject<any>();
-    const currentUser = this.currentUser || {classes:[]};
+    const currentUser = this.currentUser || { classes: [] };
     const catalogWithEnrollmentStatus =
       COURSE_CATALOG.map(catalogClass => {
-        let enrolled = {enrolled: currentUser.classes.includes(catalogClass.classId)};
+        const enrolled = { enrolled: currentUser.classes.includes(catalogClass.classId) };
         return Object.assign(catalogClass, enrolled);
       });
-    setTimeout(() => {subject.next(catalogWithEnrollmentStatus); subject.complete();}, 200);
+    setTimeout(() => { subject.next(catalogWithEnrollmentStatus); subject.complete(); }, 200);
 
     return subject;
   }
@@ -80,22 +80,22 @@ const COURSES = [{
   courseName: 'Ancient History of Magic',
   creditHours: 4,
   description: '...'
-},{
+}, {
   courseNumber: 'CH101',
   courseName: 'Intro to Charms',
   creditHours: 4,
   description: '...'
-},{
+}, {
   courseNumber: 'CH205',
   courseName: 'Creating Advanced Charms',
   creditHours: 4,
   description: '...'
-},{
+}, {
   courseNumber: 'SP101',
   courseName: 'Intro Spell Casting',
   creditHours: 4,
   description: '...'
-},{
+}, {
   courseNumber: 'SP201',
   courseName: 'Advanced Spell Casting',
   creditHours: 4,
@@ -130,49 +130,49 @@ const COURSE_CATALOG = [{
   seatsAvailable: 28,
   days: 'THF',
   time: 11
-},{
+}, {
   classId: '7277956e-795f-4c0f-9861-cf03635df5ea',
   course: COURSES[2],
   professor: 'Meriel Dufaux',
   seatsAvailable: 28,
   days: 'THF',
   time: 11
-},{
+}, {
   classId: '7277956e-795f-4c0f-9861-cf03635df5ea',
   course: COURSES[3],
   professor: 'Adranus Klaus',
   seatsAvailable: 28,
   days: 'THF',
   time: 11
-},{
+}, {
   classId: '7277956e-795f-4c0f-9861-cf03635df5ea',
   course: COURSES[4],
   professor: 'Ragnvald Graupnar',
   seatsAvailable: 28,
   days: 'THF',
   time: 11
-},{
+}, {
   classId: '7277956e-795f-4c0f-9861-cf03635df5ea',
   course: COURSES[5],
   professor: 'Philosifus Siebrand',
   seatsAvailable: 28,
   days: 'THF',
   time: 11
-},{
+}, {
   classId: '7277956e-795f-4c0f-9861-cf03635df5ea',
   course: COURSES[2],
   professor: 'Phoebe Chabon',
   seatsAvailable: 28,
   days: 'THF',
   time: 11
-},{
+}, {
   classId: '7277956e-795f-4c0f-9861-cf03635df5ea',
   course: COURSES[3],
   professor: 'Sycily Soule',
   seatsAvailable: 28,
   days: 'THF',
   time: 11
-},{
+}, {
   classId: '7277956e-795f-4c0f-9861-cf03635df5ea',
   course: COURSES[4],
   professor: 'Heldebald Cincebeaux',

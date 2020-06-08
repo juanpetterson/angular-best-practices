@@ -161,8 +161,8 @@ export class SignInComponent {
 }
 
 @Component({
-  styleUrls: ['../styles/register.component.css'],
-  templateUrl: '../templates/register.component.html',
+  styleUrls: ['./register.component.css'],
+  templateUrl: './register.component.html',
 })
 export class RegisterComponent {
   registerForm: FormGroup;
